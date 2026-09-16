@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Tes IQ Siswa — SD, SMP, SMA</title>
+<title>Tes IQ Murid — SD, SMP, SMA</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -371,7 +371,7 @@
 <div class="wrap">
 
   <div class="topbar">
-    <div class="brand"><span class="dot">🧠</span> Tes IQ Siswa</div>
+    <div class="brand"><span class="dot">🧠</span> Tes IQ Murid</div>
     <div class="pill" id="topPill">SD · SMP · SMA</div>
   </div>
 
@@ -379,12 +379,12 @@
   <section id="screen-home" class="screen active">
     <div class="card">
       <div class="hero">
-        <h1>Tes IQ Siswa</h1>
+        <h1>Tes IQ Murid</h1>
         <p>Uji kemampuan logika, numerik, verbal, dan spasialmu. Pilih jenjang, jawab 40 soal acak, lalu lihat estimasi skor IQ-mu. Hasil bisa dicetak / disimpan sebagai PDF.</p>
       </div>
 
       <div class="field">
-        <label for="namaInput">Nama Siswa (opsional)</label>
+        <label for="namaInput">Nama Murid (opsional)</label>
         <input id="namaInput" type="text" placeholder="Contoh: Andi Pratama" maxlength="30" autocomplete="off" />
       </div>
 
@@ -410,7 +410,7 @@
       </div>
 
       <div class="note">
-        <b>Soal diacak setiap kali tes dimulai!</b> Setiap siswa menerima kombinasi soal, urutan soal,
+        <b>Soal diacak setiap kali tes dimulai!</b> Setiap Murid menerima kombinasi soal, urutan soal,
         dan urutan pilihan jawaban yang berbeda — sehingga tidak bisa saling mencontek.<br><br>
         <b>Fitur cetak:</b> Setelah tes selesai, klik <b>🖨️ Cetak / Simpan PDF</b> untuk mencetak hasil
         atau menyimpannya sebagai file PDF melalui dialog print browser.<br><br>
@@ -450,7 +450,7 @@
 
       <!-- Header khusus cetak (hanya muncul saat print) -->
       <div class="print-header">
-        <h2>Laporan Hasil Tes IQ Siswa</h2>
+        <h2>Laporan Hasil Tes IQ Murid</h2>
         <div class="sub" id="printDate">—</div>
       </div>
 
@@ -607,7 +607,7 @@ const BANK = {
       { c:"Logika",  q:"Rina lebih tua dari Sari, Sari lebih tua dari Tuti, Tuti lebih tua dari Umi. Siapa yang paling muda?", o:["Rina","Sari","Tuti","Umi"], a:"Umi" },
       { c:"Numerik", q:"Berapakah 15% dari 300?", o:["30","40","45","50"], a:"45" },
       { c:"Numerik", q:"Lanjutkan pola: 1, 4, 9, 16, 25, ...", o:["30","32","36","49"], a:"36" },
-      { c:"Logika",  q:"Semua mahasiswa pintar. Budi bukan mahasiswa. Maka ...", o:["Budi tidak pintar","Budi pintar","Budi mungkin pintar, mungkin tidak","Budi pasti bodoh"], a:"Budi mungkin pintar, mungkin tidak" },
+      { c:"Logika",  q:"Semua mahaMurid pintar. Budi bukan mahaMurid. Maka ...", o:["Budi tidak pintar","Budi pintar","Budi mungkin pintar, mungkin tidak","Budi pasti bodoh"], a:"Budi mungkin pintar, mungkin tidak" },
       { c:"Verbal",  q:"Manakah yang tidak sekelompok?", o:["Jakarta","Bandung","Surabaya","Indonesia"], a:"Indonesia" },
       { c:"Numerik", q:"Jika 2^x = 32, berapakah nilai x?", o:["4","5","6","16"], a:"5" },
       { c:"Numerik", q:"Sebuah mobil menempuh 120 km dalam 2 jam. Berapa kecepatannya?", o:["40 km/jam","50 km/jam","60 km/jam","240 km/jam"], a:"60 km/jam" },
@@ -775,7 +775,7 @@ const $$ = s => Array.from(document.querySelectorAll(s));
 
 const state = {
   level: null,
-  nama: "Siswa",
+  nama: "Murid",
   soal: [],
   jawaban: [],
   idx: 0,
@@ -819,7 +819,7 @@ function showScreen(id){
 function mulaiTes(level){
   const data = BANK[level];
   state.level = level;
-  state.nama  = ($("#namaInput").value || "").trim() || "Siswa";
+  state.nama  = ($("#namaInput").value || "").trim() || "Murid";
 
   const terpilih = ambilSoalAcak(data.soal, JUMLAH_SOAL);
 
